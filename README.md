@@ -2,17 +2,17 @@
 
 This project focuses on recognizing human emotions from short texts (tweets) using both traditional machine learning and deep learning models. It was developed as part of a Hands-on Natural Language Processing (NLP) course project at Université Paris-Saclay.
 
-## 👥 Authors
+## Team Members
 
-- Md. Naim Hassan Saykat  
-- Aloïs Vincent  
-- Marija Brkic  
+- Md Naim Hassan Saykat: SVM, Logistic Regression, Random Forest, BERT, Ensamble, Included in Traditional models and BERT parts of the Report
+- Aloïs Vincent: Data Exploration and Visualization, References, SVM, Logistic Regression, Random Forest, Notebooks Merging, Presentation 
+- Marija Brkic: Data and Dataset Analysis, State-of-the-art Models Research, Vectorization and Visualization, Convolutional Neural Network, Report 
 
-## 📌 Objective
+## Objective
 
 The goal is to predict emotions expressed in tweets using a variety of models and compare their effectiveness. The project covers traditional classifiers, convolutional neural networks (CNN), and fine-tuned transformer models such as BERT.
 
-## 📊 Dataset
+## Dataset
 
 - **Dataset Source**: [`dair-ai/emotion`](https://huggingface.co/datasets/dair-ai/emotion)  
 - **Number of tweets**: 416,809  
@@ -24,7 +24,7 @@ The goal is to predict emotions expressed in tweets using a variety of models an
   - Fear
   - Surprise
 
-## 🧠 Models Implemented
+## Models Implemented
 
 | Model                         | Accuracy |
 |------------------------------|----------|
@@ -35,7 +35,7 @@ The goal is to predict emotions expressed in tweets using a variety of models an
 | BERT (fine-tuned)            | 92%      |
 | Ensemble (BERT + SVM + RF + LR) | 90%   |
 
-## ⚙️ Technologies Used
+## Technologies Used
 
 - Python
 - Pandas, NumPy
@@ -47,7 +47,7 @@ The goal is to predict emotions expressed in tweets using a variety of models an
 - NLTK
 - Jupyter Notebook
 
-## 📈 Evaluation Metrics
+## Evaluation Metrics
 
 We used the following metrics to evaluate model performance:
 
