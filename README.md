@@ -4,7 +4,7 @@ This project focuses on recognizing human emotions from short texts (tweets) usi
 
 ## Team Members
 
-- Md Naim Hassan Saykat: SVM, Logistic Regression, Random Forest, BERT, Ensamble, Included in Traditional models and BERT parts of the Report
+- Md Naim Hassan Saykat: SVM, Logistic Regression, Random Forest, BERT, Ensamble, Included in Traditional Models and BERT Parts of the Report
 - Aloïs Vincent: Data Exploration and Visualization, References, SVM, Logistic Regression, Random Forest, Notebooks Merging, Presentation 
 - Marija Brkic: Data and Dataset Analysis, State-of-the-art Models Research, Vectorization and Visualization, Convolutional Neural Network, Report 
 
