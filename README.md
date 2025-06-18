@@ -12,7 +12,7 @@ This project focuses on recognizing human emotions from short texts (tweets) usi
  
 [Jupyter Notebook](./emotion_recognition_code.ipynb)
 [Project Report](./emotion_recognition_report.pdf) 
-[Presentation Slides](./emotion_recognition_presentation.pptx)
+[Presentation Slides](./emotion_recognition_presentation.pdf)
 
 ## Objective
 
