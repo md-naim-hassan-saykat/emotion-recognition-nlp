@@ -72,3 +72,8 @@ We used the following metrics to evaluate model performance:
 | Ensemble            | 90% | 0.91 | 0.89 | 0.90 |
 
 > Note: BERT gave the highest F1-score across all emotion classes. Surprise had the lowest scores due to class imbalance.
+
+## Disclaimer
+
+This project is shared for academic demonstration purposes only.  
+Reuse, reproduction, or distribution is not permitted without explicit permission.
