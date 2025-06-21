@@ -1,7 +1,6 @@
 # Emotion Recognition from Tweets
 
-This project focuses on recognizing human emotions from short texts (tweets) using both traditional machine learning and deep learning models. It was developed as part of a Hands-on Natural Language Processing (NLP) course project at Université Paris-Saclay.
-
+This project focuses on recognizing human emotions from short texts (tweets) using both traditional machine learning and deep learning models.
 ## Team Members
 
 - Md Naim Hassan Saykat: SVM, Logistic Regression, Random Forest, BERT, Ensamble, Included in Traditional Models and BERT Parts of the Report
