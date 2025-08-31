@@ -1,78 +1,80 @@
-# Emotion Recognition from Tweets
+# Emotion Recognition using NLP
 
-This project focuses on recognizing human emotions from short texts (tweets) using both traditional machine learning and deep learning models.
-## Team Members
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/downloads/release/python-390/) 
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0-red)](https://pytorch.org/get-started/) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-- Md Naim Hassan Saykat: SVM, Logistic Regression, Random Forest, BERT, Ensamble, Included in Traditional Models and BERT Parts of the Report
-- Aloïs Vincent: Data Exploration and Visualization, References, SVM, Logistic Regression, Random Forest, Notebooks Merging, Presentation 
-- Marija Brkic: Data and Dataset Analysis, State-of-the-art Models Research, Vectorization and Visualization, Convolutional Neural Network, Report
+This project implements **emotion recognition from text** using both **transformer-based deep learning (BERT)** and **classical machine learning models** (SVM, Random Forest, Logistic Regression).  
+An **ensemble approach** is also tested by combining all models with majority voting.
 
-## Project Files
- 
-[Jupyter Notebook](./emotion_recognition_code.ipynb)
-[Project Report](./emotion_recognition_report.pdf) 
-[Presentation Slides](./emotion_recognition_presentation.pdf)
+---
 
-## Objective
+## Project Overview
+- **Task:** Multi-class emotion recognition from text  
+- **Dataset:** [dair-ai/emotion](https://huggingface.co/datasets/dair-ai/emotion) (Hugging Face)  
+- **Models Implemented:**  
+  - BERT (transformer-based fine-tuned model)  
+  - SVM (Support Vector Machine with TF-IDF features)  
+  - Random Forest  
+  - Logistic Regression  
+  - Ensemble (BERT + SVM + RF + LR via majority voting)  
+- **Metrics:** Classification Report (Precision, Recall, F1-Score), Confusion Matrix  
+- **Goal:** Compare deep learning vs. classical ML for emotion recognition  
 
-The goal is to predict emotions expressed in tweets using a variety of models and compare their effectiveness. The project covers traditional classifiers, convolutional neural networks (CNN), and fine-tuned transformer models such as BERT.
+---
 
-## Dataset
+## Repository Structure
+emotion-recognition-nlp/
+│
+├── notebooks/
+│   └── emotion_recognition.ipynb     # Main Jupyter Notebook
+│
+├── docs/
+│   ├── report.tex                    # LaTeX project report (if included)
+│   ├── report.pdf                    # Compiled project report
+│   └── references.bib                # References for the report
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+---
 
-- **Dataset Source**: [`dair-ai/emotion`](https://huggingface.co/datasets/dair-ai/emotion)  
-- **Number of tweets**: 416,809  
-- **Emotion Classes**:
-  - Joy
-  - Sadness
-  - Anger
-  - Love
-  - Fear
-  - Surprise
+## Getting Started
 
-## Models Implemented
+### Clone the repo
+```bash
+git clone https://github.com/md-naim-hassan-saykat/emotion-recognition-nlp.git
+cd emotion-recognition-nlp
+## Install dependencies
+pip install -r requirements.txt
+## Run the notebook
+Open notebooks/emotion_recognition.ipynb and run all cells to:
+	•	Preprocess dataset
+	•	Train BERT and classical models
+	•	Evaluate performance
+	•	Compare results
+## Results
+BERT (Transformer-based model)
+	•	Best performing model with highest F1-score
+	•	Handles semantic context well
 
-| Model                         | Accuracy |
-|------------------------------|----------|
-| Logistic Regression          | 86%      |
-| Random Forest                | 87%      |
-| Support Vector Machine       | 89%      |
-| Convolutional Neural Network | 89%      |
-| BERT (fine-tuned)            | 92%      |
-| Ensemble (BERT + SVM + RF + LR) | 90%   |
+Classical ML Models (TF-IDF features)
+	•	SVM, Random Forest, and Logistic Regression show competitive but lower performance than BERT
 
-## Technologies Used
+Ensemble
+	•	Combines all models using majority voting
+	•	Achieves balanced precision/recall across classes
+## References
+	1.	Vaswani et al., Attention is All You Need, NeurIPS 2017.
+	2.	Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, NAACL 2019.
+	3.	HuggingFace Datasets: dair-ai/emotion.
+	4.	Pedregosa et al., Scikit-learn: Machine Learning in Python, JMLR 2011.
+## Author
 
-- Python
-- Pandas, NumPy
-- Scikit-learn
-- TensorFlow, Keras
-- PyTorch
-- HuggingFace Transformers
-- Matplotlib, Seaborn
-- NLTK
-- Jupyter Notebook
+Md Naim Hassan Saykat
+MSc in Artificial Intelligence, Université Paris-Saclay
 
-## Evaluation Metrics
-
-We used the following metrics to evaluate model performance:
-
-- **Accuracy**: Overall correctness
-- **Precision**: Correct positive predictions / Total predicted positives
-- **Recall**: Correct positive predictions / Total actual positives
-- **F1-Score**: Harmonic mean of precision and recall
-
-| Model | Accuracy | Precision | Recall | F1-Score |
-|-------|----------|-----------|--------|----------|
-| Logistic Regression | 86% | 0.87 | 0.85 | 0.86 |
-| Random Forest       | 87% | 0.88 | 0.86 | 0.87 |
-| SVM                 | 89% | 0.90 | 0.88 | 0.89 |
-| CNN                 | 89% | 0.89 | 0.88 | 0.88 |
-| BERT                | 92% | 0.93 | 0.91 | 0.92 |
-| Ensemble            | 90% | 0.91 | 0.89 | 0.90 |
-
-> Note: BERT gave the highest F1-score across all emotion classes. Surprise had the lowest scores due to class imbalance.
-
-## Disclaimer
-
-This project is shared for academic demonstration purposes only.  
-Reuse, reproduction, or distribution is not permitted without explicit permission.
+[LinkedIn](https://www.linkedin.com/in/md-naim-hassan-saykat/)  
+[GitHub](https://github.com/md-naim-hassan-saykat)  
+[Academic Email](mailto:md-naim-hassan.saykat@universite-paris-saclay.fr)  
+[Personal Email](mailto:mdnaimhassansaykat@gmail.com)
