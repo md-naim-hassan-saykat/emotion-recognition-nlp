@@ -1,8 +1,10 @@
 # Emotion Recognition using NLP
 
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue)](https://www.python.org/downloads/release/python-390/) 
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0-red)](https://pytorch.org/get-started/) 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/md-naim-hassan-saykat/emotion-recognition-nlp/blob/main/notebooks/emotion_recognition.ipynb)
+
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-2.0-red)
+![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
 This project implements **emotion recognition from text** using both **transformer-based deep learning (BERT)** and **classical machine learning models** (SVM, Random Forest, Logistic Regression).  
 An **ensemble approach** is also tested by combining all models with majority voting.
