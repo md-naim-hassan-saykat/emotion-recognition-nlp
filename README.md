@@ -30,7 +30,7 @@ emotion-recognition-nlp/
 │   └── emotion_recognition.ipynb     # Main Jupyter Notebook
 │
 ├── docs/
-│   ├── report.tex                    # LaTeX project report (if included)
+│   ├── report.tex                    # LaTeX project report 
 │   ├── report.pdf                    # Compiled project report
 │   └── references.bib                # References for the report
 │
