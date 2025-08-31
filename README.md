@@ -18,7 +18,7 @@ An **ensemble approach** is also tested by combining all models with majority vo
   - Random Forest  
   - Logistic Regression  
   - Ensemble (BERT + SVM + RF + LR via majority voting)  
-- **Metrics:** Classification Report (Precision, Recall, F1-Score), Confusion Matrix  
+- **Metrics:** Classification Report (Precision, Recall, F1-Score)  
 - **Goal:** Compare deep learning vs. classical ML for emotion recognition  
 
 ---
