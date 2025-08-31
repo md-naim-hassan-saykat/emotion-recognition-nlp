@@ -71,10 +71,11 @@ Ensemble
 	2.	Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, NAACL 2019.
 	3.	HuggingFace Datasets: dair-ai/emotion.
 	4.	Pedregosa et al., Scikit-learn: Machine Learning in Python, JMLR 2011.
-## Author
 
-Md Naim Hassan Saykat
-MSc in Artificial Intelligence, Université Paris-Saclay
+ ## Author
+
+ **Md Naim Hassan Saykat**  
+*MSc in Artificial Intelligence, Université Paris-Saclay*  
 
 [LinkedIn](https://www.linkedin.com/in/md-naim-hassan-saykat/)  
 [GitHub](https://github.com/md-naim-hassan-saykat)  
