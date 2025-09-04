@@ -47,32 +47,45 @@ emotion-recognition-nlp/
 ```bash
 git clone https://github.com/md-naim-hassan-saykat/emotion-recognition-nlp.git
 cd emotion-recognition-nlp
+
 ## Install dependencies
 pip install -r requirements.txt
+
 ## Run the notebook
 Open notebooks/emotion_recognition.ipynb and run all cells to:
 	•	Preprocess dataset
 	•	Train BERT and classical models
 	•	Evaluate performance
 	•	Compare results
+
+---
+
 ## Results
 BERT (Transformer-based model)
 	•	Best performing model with highest F1-score
 	•	Handles semantic context well
 
-Classical ML Models (TF-IDF features)
+---
+
+## Classical ML Models (TF-IDF features)
 	•	SVM, Random Forest, and Logistic Regression show competitive but lower performance than BERT
+
+---
 
 Ensemble
 	•	Combines all models using majority voting
 	•	Achieves balanced precision/recall across classes
+
+---
+
 ## References
 	1.	Vaswani et al., Attention is All You Need, NeurIPS 2017.
 	2.	Devlin et al., BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding, NAACL 2019.
 	3.	HuggingFace Datasets: dair-ai/emotion.
 	4.	Pedregosa et al., Scikit-learn: Machine Learning in Python, JMLR 2011.
 
- ## Author
+
+# Author
 
  **Md Naim Hassan Saykat**  
 *MSc in Artificial Intelligence, Université Paris-Saclay*  
@@ -80,4 +93,4 @@ Ensemble
 [LinkedIn](https://www.linkedin.com/in/md-naim-hassan-saykat/)  
 [GitHub](https://github.com/md-naim-hassan-saykat)  
 [Academic Email](mailto:md-naim-hassan.saykat@universite-paris-saclay.fr)  
-[Personal Email](mailto:mdnaimhassansaykat@gmail.com)
+[Personal Email](mailto:mdnaimhassansaykat@gmail.com) 
