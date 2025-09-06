@@ -44,7 +44,6 @@ emotion-recognition-nlp/
 ## Getting Started
 
 ### Clone the repo
-```bash
 git clone https://github.com/md-naim-hassan-saykat/emotion-recognition-nlp.git
 cd emotion-recognition-nlp
 
