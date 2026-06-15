@@ -22,8 +22,10 @@
     urlcolor=blue
 }
 
-% Title 
-\title{\textbf{Emotion Recognition from Text using BERT and Classical Machine Learning Models}}
+% Where figures live
+\graphicspath{{figs/}}
+
+\title{\textbf{Horse-to-Zebra Image Translation Using CycleGAN}}
 \author{Md Naim Hassan Saykat}
 \date{}
 
@@ -31,71 +33,84 @@
 \maketitle
 
 \begin{abstract}
-This project addresses the task of multi-class emotion recognition from text. We compare a transformer-based BERT model with classical machine learning approaches including Support Vector Machines (SVM), Random Forest (RF), and Logistic Regression (LR). We also evaluate a simple majority-vote ensemble over all models. Results on the \texttt{dair-ai/emotion} dataset are reported using test accuracy and macro-averaged precision, recall and F1. BERT achieves the strongest overall performance, while the ensemble provides a balanced alternative across classes.
+This project implements Cycle-Consistent Adversarial Networks (CycleGAN) in PyTorch for unpaired image-to-image translation between horses and zebras. The notebook shows qualitative results, configures training with adversarial and cycle-consistency losses, and specifies generator and discriminator architectures. The Structural Similarity Index (SSIM) and Peak Signal-to-Noise Ratio (PSNR) are used to assess the outputs of learning both horse-to-zebra and zebra-to-horse mappings.
 \end{abstract}
 
-\noindent \textbf{Keywords:} Emotion recognition, BERT, SVM, Random Forest, Logistic Regression, Ensemble, NLP.
+\noindent \textbf{Keywords:} CycleGAN, unpaired image translation, GANs, horse2zebra, computer vision.
 
-% Introduction 
 \section{Introduction}
-Automatic emotion recognition from text is a key problem in natural language processing (NLP) with applications in social media analytics, mental-health monitoring and conversational AI. Unlike sentiment analysis, which is typically binary (positive/negative), emotion recognition is a multi-class problem that must distinguish among categories such as \textit{joy}, \textit{sadness}, \textit{anger}, \textit{fear}, \textit{love} and \textit{surprise}.
+Image-to-image translation learns mappings between visual domains. Unlike supervised approaches such as pix2pix \cite{Isola2017Pix2Pix}, CycleGAN \cite{Zhu2017CycleGAN} enables training without paired samples by enforcing cycle-consistency. In this project, we apply CycleGAN to the horse2zebra dataset to demonstrate unpaired domain translation.
 
-Recent advances in deep learning, particularly transformers such as BERT \cite{devlin2019bert}, have enabled substantial improvements in NLP classification tasks. In this work we use the \texttt{dair-ai/emotion} dataset \cite{saravia2018carer}. Classical baselines (SVM, Random Forest, Logistic Regression) are implemented with scikit-learn \cite{pedregosa2011scikit}. We compare these approaches and a simple ensemble to understand quality/compute trade-offs for the task.
-
-% Methodology 
 \section{Methodology}
-\subsection{Dataset}
-We use the Hugging Face \texttt{dair-ai/emotion} dataset \cite{saravia2018carer}, which contains English texts annotated with six emotion classes: \textit{sadness}, \textit{joy}, \textit{love}, \textit{anger}, \textit{fear} and \textit{surprise}. We follow the official train/validation/test split.
+\textbf{Generator:} U-Net-like encoder-decoder with residual blocks. \\
+\textbf{Discriminator:} PatchGAN classifier that distinguishes real vs.\ fake local patches. \\
+\textbf{Losses:}
+\begin{itemize}[leftmargin=1.25em]
+    \item Adversarial loss (MSE)
+    \item Cycle-consistency loss (L1)
+\end{itemize}
+\textbf{Optimization:} Adam optimizer with learning rate $2 \times 10^{-4}$, $\beta_1=0.5$, $\beta_2=0.999$.
 
-\subsection{Models}
-\begin{itemize}[leftmargin=1.2em]
-    \item \textbf{BERT:} \texttt{bert-base-uncased} fine-tuned for sequence classification with six output labels. Tokenization uses \texttt{AutoTokenizer}.
-    \item \textbf{SVM:} Linear-kernel SVM trained on TF-IDF features.
-    \item \textbf{Random Forest:} 100 trees trained on TF-IDF features.
-    \item \textbf{Logistic Regression:} Linear baseline with TF-IDF features.
-    \item \textbf{Ensemble:} Simple majority vote over \{BERT, SVM, RF, LR\}.
+\section{Dataset}
+The project uses the horse2zebra dataset provided by the CycleGAN authors \cite{Zhu2017CycleGAN}. It consists of unpaired training images from both domains. Images are resized to $256 \times 256$, normalized to $[-1, 1]$, and randomly shuffled for training.
+
+\section{Experiments}
+\begin{itemize}[leftmargin=1.25em]
+    \item \textbf{Training:} 100 epochs, batch size 1.
+    \item \textbf{Checkpoints:} Generators saved every 10 epochs.
+    \item \textbf{Inference:} After training, the models are set to evaluation mode for generation.
 \end{itemize}
 
-\subsection{Evaluation Metrics}
-We report test accuracy and macro-averaged precision, recall and F1-score computed with scikit-learn.
+\subsection{Qualitative Results: Horse-to-Zebra}
+Figure~\ref{fig:h2z} shows a grid of real horses and their translated zebras produced by the trained model.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{real_horses.png}
+        \caption{Real Horses}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{fake_zebras.png}
+        \caption{Generated Zebras}
+    \end{subfigure}
+    \caption{Qualitative example of horse-to-zebra translation using CycleGAN.}
+    \label{fig:h2z}
+\end{figure}
 
-% Experiments 
-\section{Experiments}
-\subsection{Training Setup}
-BERT was fine-tuned for 5 epochs using the AdamW optimizer with a learning rate of $2 \times 10^{-5}$. Classical models use scikit-learn defaults (SVM with a linear kernel, RF with 100 estimators, LR with regularization as in \texttt{liblinear}). All results are measured on the held-out test split.
+\subsection{Qualitative Results: Zebra-to-Horse}
+Figure~\ref{fig:z2h} presents real zebras and their translated horses.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{real_zebras.png}
+        \caption{Real Zebras}
+    \end{subfigure}\hfill
+    \begin{subfigure}{0.48\textwidth}
+        \includegraphics[width=\linewidth]{fake_horses.png}
+        \caption{Generated Horses}
+    \end{subfigure}
+    \caption{Qualitative example of zebra-to-horse translation using CycleGAN.}
+    \label{fig:z2h}
+\end{figure}
 
-\subsection{Results}
-Table~\ref{tab:results} summarizes the results.\footnote{Macro metrics are the macro-averaged values from the printed classification reports in the notebook. For Random Forest, the run that was logged only printed accuracy; macro metrics were not printed in that run and are thus left blank.}
+\FloatBarrier
 
-\begin{table}[H]
-\centering
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Model} & \textbf{Test Accuracy} & \textbf{Macro Precision} & \textbf{Macro Recall} & \textbf{Macro F1} \\
-\midrule
-BERT & 0.92 & 0.87 & 0.88 & 0.87 \\
-SVM & 0.89 & 0.85 & 0.81 & 0.83 \\
-Random Forest & 0.88 & N/A & N/A & N/A \\
-Logistic Regression & 0.87 & 0.86 & 0.78 & 0.81 \\
-Ensemble (BERT+SVM+RF+LR) & 0.90 & 0.90 & 0.80 & 0.83 \\
-\bottomrule
-\end{tabular}
-\caption{Comparison of models on the \texttt{dair-ai/emotion} dataset.}
-\label{tab:results}
-\end{table}
+\subsection{Quantitative Results}
+Average SSIM and PSNR were computed over 10 samples to provide an objective comparison of real vs.\ translated images. These pixel-level metrics offer a basic sanity check but are known to be limited for unpaired translation \cite{Wang2004SSIM}.
 
-\subsection{Qualitative observations}
-Per-class reports show that \textit{surprise} is the hardest category across models (lower recall), while \textit{sadness} and \textit{joy} are recognized most reliably. The ensemble improves robustness for several minority classes by aggregating complementary errors.
+\section{Results and Discussion}
+In both directions, the CycleGAN model exhibits believable style transfer. Although qualitative results demonstrate compelling stripe transfer, there are sporadic structural distortions and background artifacts. SSIM and PSNR scores confirm moderate similarity, consistent with known limitations of pixel-based evaluation in unpaired translation tasks.
 
-% Discussion 
-\section{Discussion}
-BERT delivers the highest test accuracy and macro F1, as expected for a contextual transformer. However, SVM and LR remain strong baselines given their much lower computational cost. The majority-vote ensemble offers a simple way to balance precision and recall across classes without additional tuning.
+\section{Limitations and Future Work}
+\begin{itemize}[leftmargin=1.25em]
+    \item Background regions are sometimes incorrectly stylized.
+    \item Fine details (e.g., legs, tails) can appear distorted.
+    \item Future extensions may include perceptual metrics such as FID \cite{Heusel2017FID}, LPIPS \cite{Zhang2018LPIPS}, and attention-based generators.
+\end{itemize}
 
-% Conclusion 
 \section{Conclusion}
-We presented a comparative study of deep and classical approaches for multi-class emotion recognition. BERT provides the best overall performance, classical baselines offer efficient alternatives, and a simple ensemble yields competitive, balanced results. Future work includes computing and logging the full Random Forest classification report, exploring weighted voting or stacking, and evaluating larger transformer backbones (e.g., RoBERTa, DeBERTa).
+A working PyTorch implementation of CycleGAN for horse-zebra translation is presented in this notebook.  Adversarial and cycle-consistency losses are used to learn both directions, and straightforward quantitative indicators and qualitative visualization are used to validate the findings.  The research highlights opportunities for improvement while showcasing the efficacy of unpaired picture translation.
 
-% References 
 \bibliographystyle{plain}
 \bibliography{references}
 
