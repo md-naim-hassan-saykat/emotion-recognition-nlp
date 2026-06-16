@@ -52,28 +52,28 @@ pip install -r requirements.txt
 
 ## Run the notebook
 Open notebooks/emotion_recognition.ipynb and run all cells to:
-	.	Preprocess dataset
-	.	Train BERT and classical models
-	.	Evaluate performance
-	.	Compare results
+- Preprocess dataset
+- Train BERT and classical models
+- Evaluate performance
+- Compare results
 
 ---
 
 ## Results
 BERT (Transformer-based model)
-	.	Best performing model with highest F1-score
-	.	Handles semantic context well
+- Best performing model with highest F1-score
+- Handles semantic context well
 
 ---
 
 ## Classical ML Models (TF-IDF features)
-	.	SVM, Random Forest, and Logistic Regression show competitive but lower performance than BERT
+- SVM, Random Forest, and Logistic Regression show competitive but lower performance than BERT
 
 ---
 
 Ensemble
-	.	Combines all models using majority voting
-	.	Achieves balanced precision/recall across classes
+- Combines all models using majority voting
+- Achieves balanced precision/recall across classes
 
 ---
 
