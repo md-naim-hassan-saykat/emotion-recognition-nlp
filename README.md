@@ -71,7 +71,7 @@ BERT (Transformer-based model)
 
 ---
 
-Ensemble
+## Ensemble
 - Combines all models using majority voting
 - Achieves balanced precision/recall across classes
 
